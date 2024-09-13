@@ -28030,7 +28030,8 @@ metadata:
   annotations:
     "helm.sh/hook": "post-install"
     "helm.sh/hook-weight": "1"
-    "argocd.argoproj.io/sync-wave": "1"
+    "argocd.argoproj.io/sync-wave": "3"
+    "argocd.argoproj.io/sync-options": Delete=false
   name: helm-addon-system
 ---
 # Source: cluster-api-operator/templates/core.yaml
@@ -28040,6 +28041,8 @@ metadata:
   annotations:
     "helm.sh/hook": "post-install"
     "helm.sh/hook-weight": "1"
+    "argocd.argoproj.io/sync-wave": "3"
+    "argocd.argoproj.io/sync-options": Delete=false
   name: capi-system
 ---
 # Source: cluster-api-operator/templates/infra-conditions.yaml
@@ -28049,7 +28052,8 @@ metadata:
   annotations:
     "helm.sh/hook": "post-install"
     "helm.sh/hook-weight": "1"
-    "argocd.argoproj.io/sync-wave": "1"
+    "argocd.argoproj.io/sync-wave": "3"
+    "argocd.argoproj.io/sync-options": Delete=false
   name: capi-kubeadm-bootstrap-system
 ---
 # Source: cluster-api-operator/templates/infra-conditions.yaml
@@ -28059,7 +28063,8 @@ metadata:
   annotations:
     "helm.sh/hook": "post-install"
     "helm.sh/hook-weight": "1"
-    "argocd.argoproj.io/sync-wave": "1"
+    "argocd.argoproj.io/sync-wave": "3"
+    "argocd.argoproj.io/sync-options": Delete=false
   name: capi-kubeadm-control-plane-system
 ---
 # Source: cluster-api-operator/templates/infra.yaml
@@ -28069,7 +28074,8 @@ metadata:
   annotations:
     "helm.sh/hook": "post-install"
     "helm.sh/hook-weight": "1"
-    "argocd.argoproj.io/sync-wave": "1"
+    "argocd.argoproj.io/sync-wave": "3"
+    "argocd.argoproj.io/sync-options": Delete=false
   name: azure-infrastructure-system
 ---
 # Source: cluster-api-operator/templates/addon.yaml
@@ -28081,7 +28087,7 @@ metadata:
   annotations:
     "helm.sh/hook": "post-install"
     "helm.sh/hook-weight": "2"
-    "argocd.argoproj.io/sync-wave": "2"
+    "argocd.argoproj.io/sync-wave": "4"
 spec:
   version: v0.2.5
 ---
@@ -28094,7 +28100,7 @@ metadata:
   annotations:
     "helm.sh/hook": "post-install"
     "helm.sh/hook-weight": "2"
-    "argocd.argoproj.io/sync-wave": "2"
+    "argocd.argoproj.io/sync-wave": "4"
 ---
 # Source: cluster-api-operator/templates/infra-conditions.yaml
 apiVersion: operator.cluster.x-k8s.io/v1alpha2
@@ -28105,7 +28111,7 @@ metadata:
   annotations:
     "helm.sh/hook": "post-install"
     "helm.sh/hook-weight": "2"
-    "argocd.argoproj.io/sync-wave": "2"
+    "argocd.argoproj.io/sync-wave": "4"
 ---
 # Source: cluster-api-operator/templates/core.yaml
 apiVersion: operator.cluster.x-k8s.io/v1alpha2
@@ -28116,7 +28122,7 @@ metadata:
   annotations:
     "helm.sh/hook": "post-install"
     "helm.sh/hook-weight": "2"
-    "argocd.argoproj.io/sync-wave": "2"
+    "argocd.argoproj.io/sync-wave": "4"
 spec:
   version: v1.8.3
   manager:
@@ -28132,7 +28138,7 @@ metadata:
   annotations:
     "helm.sh/hook": "post-install"
     "helm.sh/hook-weight": "2"
-    "argocd.argoproj.io/sync-wave": "2"
+    "argocd.argoproj.io/sync-wave": "4"
 spec:
   version: v1.16.1
   manager:
