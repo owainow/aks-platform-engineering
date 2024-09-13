@@ -37,7 +37,7 @@ spec:
     metadata:
       name: addon-{{name}}-{{values.addonChart}}
       annotations:
-        argocd.argoproj.io/sync-wave: "1"
+        argocd.argoproj.io/sync-wave: "-1"
     spec:
       project: default
       sources:
@@ -54,8 +54,16 @@ spec:
               - $values/{{metadata.annotations.addons_repo_basepath}}environments/default/addons/{{values.addonChart}}/values.yaml
               - $values/{{metadata.annotations.addons_repo_basepath}}environments/{{metadata.labels.environment}}/addons/{{values.addonChart}}/values.yaml
               - $values/{{metadata.annotations.addons_repo_basepath}}clusters/{{name}}/addons/{{values.addonChart}}/values.yaml
+            # https://github.com/cert-manager/cert-manager/blob/master/deploy/charts/cert-manager/values.yaml
             values: |
               installCRDs: true
+              webhook:
+                readinessProbe:
+                  failureThreshold: 3
+                  initialDelaySeconds: 60
+                  periodSeconds: 5
+                  successThreshold: 1
+                  timeoutSeconds: 1
           # fileParameters:
           #  - name:
           #    path:
