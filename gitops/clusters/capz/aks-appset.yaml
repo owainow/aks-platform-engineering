@@ -27,7 +27,7 @@ spec:
         helm:
           valuesObject:
             subscriptionID: '{{metadata.annotations.subscription_id}}'
-            location: "westus3"
+            location: "eastus"
             identity:
               clientID: '{{metadata.annotations.akspe_identity_id}}'
               tenantID: '{{metadata.annotations.tenant_id}}'
@@ -38,7 +38,7 @@ spec:
               networkPluginMode: "overlay"
             defaults:
               agentPool:
-                sku: Standard_DS2_v2_Promo
+                sku: Standard_DS2_v2
       syncPolicy:
         automated:
           prune: true
